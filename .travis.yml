@@ -1,0 +1,17 @@
+# ----------------------------------------------------------------------------
+#
+# Package             : jicofo
+# Source Repo         : https://github.com/jitsi/jicofo
+# Travis Job Link     : https://travis-ci.com/github/asellappen/jicofo/
+# Created travis.yml  : Yes
+# Maintainer          : Arumugam N S <asellappen@yahoo.com>/Priya Seth<sethp@us.ibm.com>
+#
+# Script License      : Apache License, Version 2 or later
+#
+# ----------------------------------------------------------------------------
+
+sudo: false
+language: java
+arch:
+  - amd64
+  - ppc64le
