@@ -10,9 +10,12 @@
 #
 # ----------------------------------------------------------------------------
 
-sudo: false
+sudo: True
 dist : focal
 language: java
+before_install:
+- sudo cp cert.pem /usr/local/share/ca-certificates/ 
+- sudo update-ca-certificates
 arch:
   - amd64
   - ppc64le
