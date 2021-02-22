@@ -9,16 +9,19 @@
 # Script License      : Apache License, Version 2 or later
 #
 # ----------------------------------------------------------------------------
+language: java
 
+jdk:
+  - openjdk11
+  - openjdk15
+  
 sudo: True
 dist : focal
-language: java
+
 arch:
   - amd64
   - ppc64le
-scripts:
-  - mvn clean verify
-  - mvn clean test
+
 before_install: 
   - mkdir -p /opt/maven
   - curl https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz|tar -xz --strip 1 -C /opt/maven
@@ -27,5 +30,5 @@ before_install:
 
 script:
   - mvn -V --no-transfer-progress
-  - mvn clean verify
+ # - mvn clean verify
   - mvn clean test
