@@ -16,6 +16,7 @@ jdk:
   - openjdk15
   
 sudo: True
+
 dist : focal
 
 arch:
@@ -29,6 +30,4 @@ before_install:
   - export PATH=${MAVEN_HOME}/bin:${PATH}
 
 script:
-  - mvn -V --no-transfer-progress
- # - mvn clean verify
   - mvn clean test
