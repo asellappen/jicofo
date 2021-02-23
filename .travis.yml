@@ -22,17 +22,12 @@ dist : focal
 arch:
   - amd64
   - ppc64le
-
-before_install: 
-  - mkdir -p /opt/maven
-  - curl https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz|tar -xz --strip 1 -C /opt/maven
-  - export MAVEN_HOME=/opt/maven
-  - export PATH=${MAVEN_HOME}/bin:${PATH}
-
+install: 
+  - travis_wait 30 mvn install
 script:
-#known issue : jitsi/jicofo#581 for mvn failure for ppc64le,hecne ignore
+#known issue : jitsi/jicofo#581 for mvn failure for ppc64le,hence ignore option for ppc only
   - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
-        mvn test ;
+        travis_wait 30 mvn test ;
     else
-        mvn test  -Dmaven.test.failure.ignore=true;
+        travis_wait 30 mvn test  -Dmaven.test.failure.ignore=true;
     fi
