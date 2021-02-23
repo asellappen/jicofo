@@ -33,5 +33,6 @@ script:
   - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
         mvn test ;
     else
-        mvn test  -Dmaven.test.failure.ignore=true;#known issue : jitsi/jicofo#581 for mvn failure for ppc64le
+        #known issue : jitsi/jicofo#581 for mvn failure for ppc64le
+        mvn test  -Dmaven.test.failure.ignore=true;
     fi
