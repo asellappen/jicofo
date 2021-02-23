@@ -26,7 +26,7 @@ arch:
 script:
 #known issue : jitsi/jicofo#581 for mvn failure for ppc64le,hence ignore option for ppc only
   - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
-      travis_wait 30 mvn test  -Dmaven.test.failure.ignore=true; 
+      mvn test  -Dmaven.test.failure.ignore=true; 
     else
-      travis_wait 30 mvn test;
+      mvn test;
     fi
