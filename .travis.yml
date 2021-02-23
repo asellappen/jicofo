@@ -22,8 +22,7 @@ dist : focal
 arch:
   - amd64
   - ppc64le
-install: 
-  - travis_wait 30 mvn install
+
 script:
 #known issue : jitsi/jicofo#581 for mvn failure for ppc64le,hence ignore option for ppc only
   - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
