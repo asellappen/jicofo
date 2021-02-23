@@ -30,9 +30,9 @@ before_install:
   - export PATH=${MAVEN_HOME}/bin:${PATH}
 
 script:
+#known issue : jitsi/jicofo#581 for mvn failure for ppc64le,hecne ignore
   - if [[ "$TRAVIS_CPU_ARCH" == "ppc64le" ]]; then 
         mvn test ;
     else
-        #known issue : jitsi/jicofo#581 for mvn failure for ppc64le
         mvn test  -Dmaven.test.failure.ignore=true;
     fi
